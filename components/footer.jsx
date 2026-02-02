@@ -12,7 +12,7 @@ const Footer = () => {
     fontStyle: 'normal',
     fontWeight: 300,
     lineHeight: '32px', /* 228.571% */
-    width: '394px',
+    width: '394px', // Exact width requested
   };
 
   const linkStyle = {
@@ -21,7 +21,7 @@ const Footer = () => {
     fontSize: '14px',
     fontStyle: 'normal',
     fontWeight: 500,
-    lineHeight: '32px', /* 228.571% */
+    lineHeight: '32px',
     cursor: 'pointer',
   };
 
@@ -31,7 +31,7 @@ const Footer = () => {
     fontSize: '12px',
     fontStyle: 'normal',
     fontWeight: 300,
-    lineHeight: '32px', /* 266.667% */
+    lineHeight: '32px',
     cursor: 'pointer',
   };
 
@@ -41,32 +41,38 @@ const Footer = () => {
     fontSize: '12px',
     fontStyle: 'normal',
     fontWeight: 300,
-    lineHeight: '24px', /* 200% */
+    lineHeight: '24px', 
     marginTop: '20px',
   };
 
   return (
-    // UPDATED: Removed 'bg-[#020617]' so it takes the background from Global CSS
-    <footer className="w-full pt-20 pb-10 px-6 border-t border-white/10">
+    // UPDATED PADDING: 
+    // - pt-[100px] (Top)
+    // - pb-[32px] (Bottom)
+    // - lg:px-[270px] (Left/Right on large screens)
+    // - px-6 (Fallback for mobile)
+    <footer className="w-full pt-[100px] pb-[32px] px-6 lg:px-[270px] border-t border-white/10">
       
       {/* Font Imports */}
       <style jsx global>{`
         @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500&family=Sora:wght@300&display=swap');
       `}</style>
 
-      <div className="max-w-[1380px] w-full mx-auto flex flex-col">
+      <div className="w-full mx-auto flex flex-col">
         
         {/* === TOP SECTION === */}
         <div className="flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-0 mb-16">
           
-          {/* 1. Logo Column */}
+          {/* 1. Logo Column (Replaced Text with Image) */}
           <div className="flex-shrink-0 mr-12">
-            <h2 className="text-white text-3xl font-bold font-['Blauer_Nue'] tracking-tighter">
-              SMRSC <span className="text-white/80">2026</span>
-            </h2>
+            <img 
+              src="/logos/header.png" 
+              alt="SMRSC Logo" 
+              className="w-[120px] h-auto brightness-200" // Adjusted brightness to match dark theme if needed
+            />
           </div>
 
-          {/* 2. Address Column */}
+          {/* 2. Address Column (Applied Specific Styles) */}
           <div style={addressStyle} className="mr-auto">
             <p>Sudhir Srivastava Innovations Pvt. Ltd. (R&D HQ – India)</p>
             <p>404-405, 3rd Floor, iLabs Center, Udyog Vihar, Phase III, Gurugram, Haryana, India – 122016</p>
